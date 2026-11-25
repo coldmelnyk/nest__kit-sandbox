@@ -12,3 +12,26 @@
 
 | Переменная | Зачем | Обязательна | Откуда значение |
 | --- | --- | --- | --- |
+| `NODE_ENV` | `dev`, `production` или `e2e`: какие файлы `.env.*` читать | нет, по умолчанию `dev`; production задаёт явно | окружение процесса |
+| `PORT` | порт HTTP API | да | `.env.dev` локально; переменная стенда |
+| `DATABASE_URL` | адрес PostgreSQL (секрет) | да | локально — из значений `docker-compose.yml`; на стенде — хранилище секретов стенда |
+| `LOG_LEVEL` | `debug`, `info`, `warn`, `error`, `silent` | нет, по умолчанию `info` | `.env.*` |
+
+Файлы: `dev` — `.env.local`, затем `.env.dev`; `production` — `.env.production`; `e2e` — значения в `vitest.config.e2e.ts`, `DATABASE_URL` из окружения сильнее. Переменные процесса сильнее файлов. В git — только `.env.example`.
+
+## Локальная инфраструктура
+
+Вся инфраструктура для разработки описана в `docker-compose.yml`.
+
+| Сервис | Что | Порт |
+| --- | --- | --- |
+| `postgres` | PostgreSQL 17; базы `kit_sandbox` (dev) и `kit_sandbox_e2e` (e2e, создаётся `docker/postgres/init` при первом запуске с пустым томом) | `5432`, меняется `POSTGRES_PORT` |
+
+Запуск — `npm run db:up`, остановка — `npm run db:down`. Схема применяется `npm run prisma:deploy` (при разработке — `npm run prisma:migrate`); e2e применяет миграции сам.
+
+## Сборка приложения
+
+- `src/main.ts` — запуск API; логгер Nest выключен, записи идут через `EventLogger`.
+- `src/app/` — модули ролей, префикс `/api/v1`, валидация, фильтр ошибок, `@Public()` (без пометки эндпоинт отвечает 401), документ API на `/api/docs`.
+- `src/shared/` — роли kit: `clock`, `ids`, `configs`, `logging`, `http`, `db`.
+- `src/generated/prisma` — клиент Prisma, создаётся `prisma generate` (`postinstall`), в git не попадает.
