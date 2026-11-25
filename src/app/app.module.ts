@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { HomepageModule } from '../modules/homepage/index.ts';
 import { ClockModule } from '../shared/clock/clock.ts';
 import { ConfigModule } from '../shared/configs/config.service.ts';
 import { DbModule } from '../shared/db/db.service.ts';
@@ -16,6 +17,6 @@ export const SHARED_MODULES = [
 ];
 
 @Module({
-  imports: [...SHARED_MODULES],
+  imports: [...SHARED_MODULES, HomepageModule],
 })
 export class AppModule {}

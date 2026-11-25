@@ -1,0 +1,19 @@
+enum PageLocale {
+  en
+  uk
+
+  @@map("page_locale")
+  @@schema("homepage")
+}
+
+// One row per locale; the migration creates them, so rows are only updated.
+model HomepageContent {
+  id        String     @id @db.Uuid
+  locale    PageLocale
+  content   Json
+  updatedAt DateTime?  @map("updated_at") @db.Timestamptz(3)
+
+  @@unique([locale])
+  @@map("homepage_contents")
+  @@schema("homepage")
+}
