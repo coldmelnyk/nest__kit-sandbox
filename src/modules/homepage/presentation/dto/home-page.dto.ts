@@ -153,6 +153,12 @@ export namespace HomePage {
     locale: HomepageLocale;
   }
 
+  @ApiSchema({ name: 'HomePage-Locales' })
+  export class Locales {
+    @ApiProperty({ enum: HOMEPAGE_LOCALES, isArray: true, example: ['en'] })
+    items: HomepageLocale[];
+  }
+
   @ApiSchema({ name: 'HomePage-UpdateRequest' })
   export class UpdateRequest {
     @ApiPropertyOptional({ type: Hero })

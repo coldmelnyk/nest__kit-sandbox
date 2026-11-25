@@ -55,6 +55,14 @@ const read = (locale: string): ReturnType<ReturnType<typeof app.http>['get']> =>
   app.http().get(PATH).query({ locale });
 
 describe('home page content', () => {
+  it('lists the locales the home page is available in', async () => {
+    const response = await app.http().get(`${PATH}/locales`);
+    expect(response.status).toBe(200);
+    expect(responseBody<{ items: string[] }>(response)).toEqual({
+      items: ['en', 'uk'],
+    });
+  });
+
   it('returns the empty page the migration created', async () => {
     for (const locale of ['en', 'uk']) {
       const response = await read(locale);

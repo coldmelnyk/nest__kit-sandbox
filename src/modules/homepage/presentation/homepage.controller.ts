@@ -9,6 +9,7 @@ import {
 import { ErrorResponse } from '../../../shared/http/error-response.ts';
 import { Public } from '../../../shared/http/public.ts';
 import { HomepageContentService } from '../application/services/homepage-content.service.ts';
+import { HOMEPAGE_LOCALES } from '../domain/homepage-content.ts';
 import { HomePage } from './dto/home-page.dto.ts';
 import {
   toHomePage,
@@ -29,6 +30,14 @@ export class HomepageController {
   @ApiInternalServerErrorResponse({ type: ErrorResponse })
   async read(@Query() query: HomePage.LocaleQuery): Promise<HomePage.Page> {
     return toHomePage(await this._contents.read(query.locale));
+  }
+
+  @Get('locales')
+  @ApiOperation({ summary: 'List the locales the home page is available in' })
+  @ApiOkResponse({ type: HomePage.Locales })
+  @ApiInternalServerErrorResponse({ type: ErrorResponse })
+  locales(): HomePage.Locales {
+    return { items: [...HOMEPAGE_LOCALES] };
   }
 
   @Patch()
