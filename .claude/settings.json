@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(.claude/rules/kit/**)",
+      "Edit(.claude/kit/**)",
+      "Edit(.claude/kit.json)",
+      "Read(.env)",
+      "Read(.env.local)",
+      "Read(.env.*.local)",
+      "Read(.env.production)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Edit(src/generated/**)",
+      "Bash(npm audit fix --force:*)"
+    ],
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run typecheck)",
+      "Bash(npm test)",
+      "Bash(npm run test:e2e)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/kit/docs-check.mjs\" --hook"
+          }
+        ]
+      }
+    ]
+  },
+  "extraKnownMarketplaces": {
+    "claude-kit": {
+      "source": {
+        "source": "github",
+        "repo": "coldmelnyk/claude-kit"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "kit@claude-kit": true
+  }
+}

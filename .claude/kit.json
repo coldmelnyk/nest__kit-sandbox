@@ -1,0 +1,363 @@
+{
+  "kit": "0.1.0",
+  "packages": [
+    {
+      "path": ".",
+      "stack": "nestjs",
+      "addons": [
+        "ci-github",
+        "prisma-postgres"
+      ],
+      "answers": {
+        "branching": "main-dev",
+        "comments": "why-only",
+        "devEnv": "dev",
+        "hasUsers": false,
+        "owner": "coldmelnyk",
+        "projectName": "kit-sandbox",
+        "requirementsLink": "docs/requirements/"
+      },
+      "roles": {
+        "cleanDatabase": {
+          "name": "cleanDatabase",
+          "path": "test/utils"
+        },
+        "clock": {
+          "name": "Clock",
+          "path": "src/shared/clock"
+        },
+        "config": {
+          "name": "ConfigService",
+          "path": "src/shared/configs"
+        },
+        "db": {
+          "name": "DbService",
+          "path": "src/shared/db"
+        },
+        "errorResponse": {
+          "name": "ErrorResponse",
+          "path": "src/shared/http"
+        },
+        "eventLog": {
+          "name": "EventLogger",
+          "path": "src/shared/logging"
+        },
+        "factory": {
+          "name": "defineFactory",
+          "path": "test/factories"
+        },
+        "holdLock": {
+          "name": "holdLock",
+          "path": "test/utils"
+        },
+        "ids": {
+          "name": "Ids",
+          "path": "src/shared/ids"
+        },
+        "listQuery": {
+          "name": "ListQuery",
+          "path": "src/shared/http"
+        },
+        "overlap": {
+          "name": "runOverlapped",
+          "path": "test/utils"
+        },
+        "probeApp": {
+          "name": "createProbeApp",
+          "path": "test/utils"
+        },
+        "publicMark": {
+          "name": "@Public()",
+          "path": "src/shared/http"
+        },
+        "queryPlan": {
+          "name": "planOf",
+          "path": "test/utils"
+        },
+        "responseBody": {
+          "name": "responseBody",
+          "path": "test/utils"
+        },
+        "seedBase": {
+          "name": "DevSeed",
+          "path": "src/shared/seeding"
+        },
+        "testApp": {
+          "name": "useTestApp",
+          "path": "test/utils"
+        },
+        "transactions": {
+          "name": "Transactions",
+          "path": "src/shared/db"
+        },
+        "txType": {
+          "name": "Tx",
+          "path": "src/shared/db"
+        },
+        "uniqueViolation": {
+          "name": "isUniqueViolation",
+          "path": "src/shared/db"
+        },
+        "waitFor": {
+          "name": "waitFor",
+          "path": "test/utils"
+        }
+      },
+      "docsCheck": {
+        "mode": "block",
+        "docs": [
+          "docs/**"
+        ],
+        "categories": {
+          "api": [
+            "src/**/*.controller.ts",
+            "src/**/*.dto.ts",
+            "src/**/*.error-statuses.ts"
+          ],
+          "architecture": [
+            "src/*/*/*.module.ts",
+            "src/*/*/index.ts",
+            "src/app/**"
+          ],
+          "config": [
+            ".env.example",
+            "src/shared/configs/**"
+          ],
+          "data": [
+            "prisma/schema/**",
+            "prisma/migrations/**"
+          ],
+          "rules": [
+            ".claude/rules/**",
+            "AGENTS.md",
+            "CLAUDE.md",
+            ".claude/settings.json"
+          ]
+        }
+      }
+    }
+  ],
+  "files": {
+    ".claude/kit/docs-check.mjs": {
+      "class": "managed",
+      "source": "base/kit/docs-check.mjs",
+      "hash": "sha256:9b4b4fa3905a020df93e279a7d6b2aec44c7a6e7fd40839f80567c75032b99e9"
+    },
+    ".claude/rules/kit/base/dependencies.md": {
+      "class": "managed",
+      "source": "base/rules/dependencies.md",
+      "hash": "sha256:58e58bde4d1f767523eb3aea64943d36348a6ad575c2579d5ecb98c8933c3472"
+    },
+    ".claude/rules/kit/base/documentation.md": {
+      "class": "managed",
+      "source": "base/rules/documentation.md",
+      "hash": "sha256:fd274e026f71242e2e509cf694e5bdbbc64f5bf9a6bb6192a12720c5c6e56277"
+    },
+    ".claude/rules/kit/base/secrets.md": {
+      "class": "managed",
+      "source": "base/rules/secrets.md",
+      "hash": "sha256:0ed78b32dea74829a7858e5416e8196f19044f0e6d1a3e155487f656ce94c989"
+    },
+    ".claude/rules/kit/base/testing.md": {
+      "class": "managed",
+      "source": "base/rules/testing.md",
+      "hash": "sha256:2789efe260022239f87fd8343569c83022cd7fd660cb476fbdb0106e1d5bbd6c"
+    },
+    ".claude/rules/kit/base/workflow.md": {
+      "class": "managed",
+      "source": "base/rules/workflow.md",
+      "hash": "sha256:7d8a572c33164b2c8291cdac111cfc05cac99b37c351d80758d41453060a6c7c"
+    },
+    ".claude/rules/kit/nestjs/api.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/api.md",
+      "hash": "sha256:0ccdfabef2223fe2a456df2cefcaf7908e7ed14381b74a458fa43ebf473889b1"
+    },
+    ".claude/rules/kit/nestjs/app-shared.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/app-shared.md",
+      "hash": "sha256:a027bb1819c9530b6acd75be29e01b39f2ad7ebfc286e3efb7ccb8a59f6e59ee"
+    },
+    ".claude/rules/kit/nestjs/code-style.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/code-style.md",
+      "hash": "sha256:905bab3b367f453736119e9b4cbecfb4d921374cb80898dc9f213721ba87f49d"
+    },
+    ".claude/rules/kit/nestjs/config.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/config.md",
+      "hash": "sha256:eb16a11e6ab24aa5323636555dd0a84fcaffdc91b845ab598676bdbf7a9966c9"
+    },
+    ".claude/rules/kit/nestjs/errors.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/errors.md",
+      "hash": "sha256:e65ef06cce94297949d88bbbea789d0b95e1eb91166dbe75a138aa39226b96e8"
+    },
+    ".claude/rules/kit/nestjs/layers.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/layers.md",
+      "hash": "sha256:412cb0eb494873fb13fe45e7a9e24525d1538264ca18b7744a33eb87d834d6f7"
+    },
+    ".claude/rules/kit/nestjs/logging.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/logging.md",
+      "hash": "sha256:98ce9083e37cae147f35ff07582c9416dc251a3dd226c2fd068025669de26d71"
+    },
+    ".claude/rules/kit/nestjs/modules.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/modules.md",
+      "hash": "sha256:d79f3b49e1d1985e7078314d123d2e23c6d99b93fe359737c4392085ec88f968"
+    },
+    ".claude/rules/kit/nestjs/npm.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/npm.md",
+      "hash": "sha256:a16a7e48d3c72cf00884153b1c7b124deb067a9ebb8cc28d7b2a3daaa5a4c451"
+    },
+    ".claude/rules/kit/nestjs/ports.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/ports.md",
+      "hash": "sha256:c3879db4014f9701db09bf87c09d4dcf8e1bfc85fea751b1f9fae34870da66a4"
+    },
+    ".claude/rules/kit/nestjs/roles.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/roles.md",
+      "hash": "sha256:b01165fb2d160980daaa8a8e4906a454c40716eace578015e7a9b00faf2d9ed3"
+    },
+    ".claude/rules/kit/nestjs/seeds.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/seeds.md",
+      "hash": "sha256:fab76c127824e372a89b65f1fdaad89cba5d950da3a1a30f6eddd24170b017ea"
+    },
+    ".claude/rules/kit/nestjs/testing.md": {
+      "class": "managed",
+      "source": "stacks/nestjs/rules/testing.md",
+      "hash": "sha256:de10a3fc16228dd9967bb810fdd4bd4662bfa7100d518e1aa526912dd03bafb2"
+    },
+    ".claude/rules/kit/prisma-postgres/migrations.md": {
+      "class": "managed",
+      "source": "addons/prisma-postgres/rules/migrations.md",
+      "hash": "sha256:b3af5268bd702a57786a37acd503ad5e934a3855e095f2c89995c4670bfc85fd"
+    },
+    ".claude/rules/kit/prisma-postgres/persistence.md": {
+      "class": "managed",
+      "source": "addons/prisma-postgres/rules/persistence.md",
+      "hash": "sha256:b12c2ae4805dbdb5dc60abc5d060b09e74b6de9ef69b15a738ef39f322a10542"
+    },
+    ".claude/rules/kit/prisma-postgres/schema.md": {
+      "class": "managed",
+      "source": "addons/prisma-postgres/rules/schema.md",
+      "hash": "sha256:f8a7e4eb36f070a6793dc1db65ea9c0d38abea99f509f840fefc190cb1155790"
+    },
+    ".claude/rules/kit/prisma-postgres/testing.md": {
+      "class": "managed",
+      "source": "addons/prisma-postgres/rules/testing.md",
+      "hash": "sha256:dfd2e4c5ea0463e59a53c6bb9718c5eda879aa61fd0ec3b0365f8e27bd8cb47a"
+    },
+    ".claude/rules/kit/prisma-postgres/transactions.md": {
+      "class": "managed",
+      "source": "addons/prisma-postgres/rules/transactions.md",
+      "hash": "sha256:a033926bbe002c32abb045d38c4f295ec27d753ff6d723147db2003b3ded8353"
+    },
+    ".claude/settings.json": {
+      "class": "json",
+      "applied": {
+        "permissions": {
+          "deny": [
+            "Edit(.claude/rules/kit/**)",
+            "Edit(.claude/kit/**)",
+            "Edit(.claude/kit.json)",
+            "Read(.env)",
+            "Read(.env.local)",
+            "Read(.env.*.local)",
+            "Read(.env.production)",
+            "Bash(git push --force:*)",
+            "Bash(git push -f:*)",
+            "Edit(src/generated/**)",
+            "Bash(npm audit fix --force:*)"
+          ],
+          "allow": [
+            "Bash(npm run lint)",
+            "Bash(npm run typecheck)",
+            "Bash(npm test)",
+            "Bash(npm run test:e2e)"
+          ]
+        },
+        "hooks": {
+          "Stop": [
+            {
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "node \"$CLAUDE_PROJECT_DIR/.claude/kit/docs-check.mjs\" --hook"
+                }
+              ]
+            }
+          ]
+        },
+        "extraKnownMarketplaces": {
+          "claude-kit": {
+            "source": {
+              "source": "github",
+              "repo": "coldmelnyk/claude-kit"
+            }
+          }
+        },
+        "enabledPlugins": {
+          "kit@claude-kit": true
+        }
+      }
+    },
+    ".github/pull_request_template.md": {
+      "class": "blocks",
+      "blocks": {
+        "ci-github/docs": "sha256:42c9de2e2cd088db30dfae5bbfd899776dd79e959016c6e3cfee1e046981e814",
+        "ci-github/done": "sha256:1824c182afcda153bb96ff6d6f9aeb1aa0061f98625b917b8f95f0f2916b5871",
+        "ci-github/not-checked": "sha256:216a3c898ea5504d2f87f93816d53207c4c58f2b8e499c06d300edfbf022eef6",
+        "ci-github/summary": "sha256:2d9e4f2936b34cf5d38f462de0c08b4fd4191c1ac39fa0c316ca12548c0710c0"
+      }
+    },
+    ".github/workflows/kit-checks.yml": {
+      "class": "managed",
+      "source": "addons/ci-github/workflows/kit-checks.yml",
+      "hash": "sha256:a9b94ce39039df8ab12e9bb18122f358361e0ffd82c0bb2143af9b89fafea54b"
+    },
+    "AGENTS.md": {
+      "class": "blocks",
+      "blocks": {
+        "base/ask-first": "sha256:5bb072db40796f6a39fca373c00b45fa90e7c4d76699ff107476e87c4867b363",
+        "base/branches": "sha256:342c3c025c28812bb45897b9bd7423227dde7b1509692eb51b4460ca3722f798",
+        "base/where-truth": "sha256:76dd9ecc17d66bda23a3debc4f574ea14bb78efcb6404edfd1b545a7ed1b1f07",
+        "nestjs/always": "sha256:3f161017754792c4ffcbde2073c4309eae1fe495b6a5cb9b6624b427d6bf1c22",
+        "nestjs/done": "sha256:58cf7024c2f28d53b1e4f13ca8274ce3518ec435032a709ff8a0cf21997c2068",
+        "nestjs/map": "sha256:482dd94e5b76b34a6b926fa8b16babdc4579eac086949fa64e714ab3fdedab77",
+        "nestjs/read-first": "sha256:d6d50d31fd0434175bef4596a8f47fddc110ac9a11a88ca18aa9e79a4ece76ed"
+      }
+    },
+    "CLAUDE.md": {
+      "class": "blocks",
+      "blocks": {
+        "base/agents-import": "sha256:c0ff94384b1cc1ff1382c0dd987b21d5b497105e7a5f20b7b1f4e6120df41379"
+      }
+    },
+    "docs/README.md": {
+      "class": "seeded",
+      "source": "base/docs/README.md"
+    },
+    "docs/architecture.md": {
+      "class": "seeded",
+      "source": "base/docs/architecture.md"
+    },
+    "docs/decisions.md": {
+      "class": "seeded",
+      "source": "base/docs/decisions.md"
+    },
+    "docs/glossary.md": {
+      "class": "seeded",
+      "source": "base/docs/glossary.md"
+    },
+    "docs/tasks/_template.md": {
+      "class": "seeded",
+      "source": "base/docs/tasks/_template.md"
+    }
+  }
+}
